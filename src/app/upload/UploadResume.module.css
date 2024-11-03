@@ -43,3 +43,44 @@
     border-radius: 5px;
   }
   
+  /* UploadResume.module.css */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* Space between elements */
+}
+
+.uploadButton {
+  margin-top: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.fileInput {
+  margin-bottom: 10px;
+}
+
+.previewContainer {
+  display: flex;
+  gap: 20px; /* Space between preview and data sections */
+  width: 100%;
+  align-items: flex-start; /* Align items to the top */
+}
+
+.preview {
+  flex: 1; /* Take up available space */
+  max-width: 45%; /* Limit the preview width */
+  height: 400px;
+}
+
+.parsedData,
+.rating {
+  flex: 1; /* Take up available space */
+  max-width: 45%; /* Limit the data width */
+  overflow: auto; /* Allow scrolling if content is too large */
+  background-color: #f8f8f8; /* Optional: light background for contrast */
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
