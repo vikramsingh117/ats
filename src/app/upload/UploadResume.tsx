@@ -49,7 +49,7 @@ const UploadResume: React.FC = () => {
 
       // Send parsed data to Gemini model for rating
       console.log("Sending parsed data to Gemini model for rating...");
-      const prompt = `follow this strict structure of keys and values, 1. resume rating(100)number only, 2.key areas to improve(title only) 3. best suited job role(job position single word only) 4.summary(provide a summary of good and bad things)${JSON.stringify(data)}`;
+      const prompt = `return as json file and follow this strict structure of keys and values, 1. resume rating(100)number only, 2.key areas to improve(title only) 3. best suited job role(job position single word only) 4.summary(provide a summary of good and bad things)${JSON.stringify(data)}`;
       const apiKey = "AIzaSyCt6I3_PyyhO8MBRqi7TsFWjxYocFELMME"; // Use your API key from environment variables
       const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`;
 
