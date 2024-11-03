@@ -108,49 +108,54 @@ const UploadResume: React.FC = () => {
 
   return (
     <div className={styles.container}>
-  <input
-    type="file"
-    accept=".pdf,.doc,.docx"
-    onChange={handleFileChange}
-    className={styles.fileInput}
-  />
-  <button
-    onClick={handleUpload}
-    disabled={!file || loading}
-    className={styles.uploadButton}
-  >
-    {loading ? "Uploading..." : "Upload Resume"}
-  </button>
+      <input
+        type="file"
+        accept=".pdf,.doc,.docx"
+        onChange={handleFileChange}
+        className={styles.fileInput}
+      />
+      <button
+        onClick={handleUpload}
+        disabled={!file || loading}
+        className={styles.uploadButton}
+      >
+        {loading ? "Uploading..." : "Upload Resume"}
+      </button>
 
-  {previewUrl && (
-    <div className={styles.previewContainer}>
-      <div className={styles.preview}>
-        <h3>File Preview:</h3>
-        {file?.type === "application/pdf" ? (
-          <iframe src={previewUrl} title="Uploaded PDF" />
-        ) : (
-          <img src={previewUrl} alt="File preview" />
-        )}
-      </div>
+      {previewUrl && (
+        <div className={styles.previewContainer}>
+          <h3>File Preview:</h3>
+          {file?.type === "application/pdf" ? (
+            <iframe
+              src={previewUrl}
+              className={styles.preview}
+              title="Uploaded PDF"
+            />
+          ) : (
+            <img
+              src={previewUrl}
+              alt="File preview"
+              className={styles.preview}
+            />
+          )}
+        </div>
+      )}
 
-      <div className={styles.dataSection}>
-        {parsedData && (
-          <div className={styles.parsedData}>
-            <h3>Parsed Data:</h3>
-            <pre>{JSON.stringify(parsedData, null, 2)}</pre>
-          </div>
-        )}
-        {ratingData && (
-          <div className={styles.rating}>
-            <h3>Resume Rating:</h3>
-            <pre>{JSON.stringify(ratingData, null, 2)}</pre>
-          </div>
-        )}
-      </div>
+      {parsedData && (
+        <div className={styles.parsedData}>
+          <h3>Parsed Data:</h3>
+          <pre>{JSON.stringify(parsedData, null, 2)}</pre>
+        </div>
+      )}
+
+      {ratingData && (
+        <div className={styles.rating}>
+          <h3>Resume Rating:</h3>
+          <pre>{JSON.stringify(ratingData, null, 2)}</pre>{" "}
+          {/* Displaying structured JSON */}
+        </div>
+      )}
     </div>
-  )}
-</div>
-
   );
 };
 
